@@ -27,6 +27,8 @@
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
+  <link href="/css/app.css" rel="stylesheet">
+
   <!-- =======================================================
   * Template Name: BizLand - v1.2.1
   * Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
