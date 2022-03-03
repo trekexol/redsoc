@@ -9,7 +9,7 @@ class OrganizationController extends Controller
 {
     public function index(){
         //dd("hola");
-        $organizations = Organization::orderBy('name','asc')->get();
+        $organizations = Organization::orderBy('nombre','asc')->get();
 
         
         return view('index',compact('organizations'));

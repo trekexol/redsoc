@@ -93,7 +93,7 @@
             <div class="col-lg-4 col-md-6  align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon-box">
                 <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4><a href="">{{ $organization->name }}</a></h4>
+                <h4><a href="">{{ $organization->nombre }}</a></h4>
                 <p>Web: {{ $organization->web }}</p>
                 @if(isset($organization->facebook))
                   <p>facebook: {{ $organization->facebook }}</p>
