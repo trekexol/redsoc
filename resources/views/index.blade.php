@@ -92,10 +92,17 @@
         <div class="row">
           
             @foreach($organizations as $organization)
-            <div class="col-lg-4 col-md-6  align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div href="#" 
+            onclick="show('{{$organization->nombre ?? 'N/A'}}','{{$organization->siglas ?? 'N/A'}}',
+            '{{$organization->ano_creacion ?? 'N/A'}}','{{$organization->direccion ?? 'N/A'}}','{{$organization->telefonos ?? 'N/A'}}'
+            ,'{{$organization->mision ?? 'N/A'}}','{{$organization->vision ?? 'N/A'}}'
+            ,'{{$organization->pagina_web ?? 'N/A'}}','{{$organization->nombre_persona ?? 'N/A'}}'
+            ,'{{$organization->telefono_persona ?? 'N/A'}}','{{$organization->email_persona ?? 'N/A'}}'
+            ,'{{$organization->twitter ?? 'N/A'}}','{{$organization->facebook ?? 'N/A'}}','{{$organization->instagram ?? 'N/A'}}');"
+            data-toggle="modal" data-target="#showModal" class="show col-lg-4 col-md-6  align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon-box">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4><a href="">{{ $organization->nombre }}</a></h4>
+                <div class="icon"><i class="icofont-building"></i></div>
+                <h4><a href="#">{{ $organization->nombre }}</a></h4>
                 <p>Web: {{ $organization->web }}</p>
                 @if(isset($organization->facebook))
                   <p>facebook: {{ $organization->facebook }}</p>
@@ -122,7 +129,102 @@
 
   
   </main><!-- End #main -->
-
+<!-- Delete Warning Modal -->
+<div class="modal modal-danger fade " id="showModal" tabindex="-1" role="dialog" aria-labelledby="Delete" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Organización</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group row">
+                  <label for="nombre" class="col-sm-2 col-form-label text-md-right">Nombre:</label>
+                  <div class="col-sm-10">
+                      <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" required autocomplete="nombre">
+                  </div>
+              </div>
+               <div class="form-group row">
+                  <label for="siglas" class="col-sm-2 col-form-label text-md-right">Siglas:</label>
+                  <div class="col-sm-3">
+                      <input id="siglas" type="text" class="form-control @error('siglas') is-invalid @enderror" name="siglas" required autocomplete="siglas">
+                  </div>
+                   <label for="ano" class="col-sm-3 col-form-label text-md-right">Año de Creación:</label>
+                  <div class="col-sm-3">
+                      <input id="ano" type="text" class="form-control @error('ano') is-invalid @enderror" name="ano" required autocomplete="ano">
+                  </div>
+              </div>
+               <div class="form-group row">
+                  <label for="direccion" class="col-sm-2 col-form-label text-md-right">Dirección:</label>
+                  <div class="col-sm-10">
+                      <input id="direccion" type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" required autocomplete="direccion">
+                  </div>
+              </div>
+               <div class="form-group row">
+                  <label for="telefonos" class="col-sm-2 col-form-label text-md-right">Teléfonos:</label>
+                  <div class="col-sm-10">
+                      <input id="telefonos" type="text" class="form-control @error('telefonos') is-invalid @enderror" name="telefonos" required autocomplete="telefonos">
+                  </div>
+              </div>
+               <div class="form-group row">
+                  <label for="mision" class="col-sm-2 col-form-label text-md-right">Misión:</label>
+                  <div class="col-sm-10">
+                      <input id="mision" type="text" class="form-control @error('mision') is-invalid @enderror" name="mision" required autocomplete="mision">
+                  </div>
+              </div>
+               <div class="form-group row">
+                  <label for="vision" class="col-sm-2 col-form-label text-md-right">Visión:</label>
+                  <div class="col-sm-10">
+                      <input id="vision" type="text" class="form-control @error('vision') is-invalid @enderror" name="vision" required autocomplete="vision">
+                  </div>
+              </div>
+               <div class="form-group row">
+                  <label for="pagina_web" class="col-sm-2 col-form-label text-md-right">Página Web:</label>
+                  <div class="col-sm-10">
+                      <input id="pagina_web" type="text" class="form-control @error('pagina_web') is-invalid @enderror" name="pagina_web" required autocomplete="pagina_web">
+                  </div>
+              </div>
+               <div class="form-group row">
+                  <label for="nombre_persona" class="col-sm-2 col-form-label text-md-right">Nombre Contacto:</label>
+                  <div class="col-sm-4">
+                      <input id="nombre_persona" type="text" class="form-control @error('nombre_persona') is-invalid @enderror" name="nombre_persona" required autocomplete="nombre_persona">
+                  </div>
+                  <label for="telefono_persona" class="col-sm-2 col-form-label text-md-right">Teléfono Contacto:</label>
+                  <div class="col-sm-4">
+                      <input id="telefono_persona" type="text" class="form-control @error('telefono_persona') is-invalid @enderror" name="telefono_persona" required autocomplete="telefono_persona">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="email_persona" class="col-sm-2 col-form-label text-md-right">Correo Electrónico:</label>
+                  <div class="col-sm-4">
+                      <input id="email_persona" type="text" class="form-control @error('email_persona') is-invalid @enderror" name="email_persona" required autocomplete="email_persona">
+                  </div>
+                   <label for="twitter" class="col-sm-2 col-form-label text-md-right">Twitter:</label>
+                  <div class="col-sm-4">
+                      <input id="twitter" type="text" class="form-control @error('twitter') is-invalid @enderror" name="twitter" required autocomplete="twitter">
+                  </div>
+              </div>
+               <div class="form-group row">
+                  <label for="facebook" class="col-sm-2 col-form-label text-md-right">Facebook:</label>
+                  <div class="col-sm-4">
+                      <input id="facebook" type="text" class="form-control @error('facebook') is-invalid @enderror" name="facebook" required autocomplete="facebook">
+                  </div>
+                   <label for="instagram" class="col-sm-2 col-form-label text-md-right">Instagram:</label>
+                  <div class="col-sm-4">
+                      <input id="instagram" type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" required autocomplete="instagram">
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Actualizar</button>
+          </div>
+         
+      </div>
+  </div>
+</div>
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
@@ -225,6 +327,29 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
 
+<script>
+   
+
+    function show(nombre,siglas,ano,direccion,telefonos,mision,vision,pagina_web,nombre_persona,telefono_persona
+    ,email_persona,twitter,facebook,instagram){
+      
+       $('#nombre').val(nombre);
+       $('#siglas').val(siglas);
+       $('#ano').val(ano);
+       $('#direccion').val(direccion);
+       $('#telefonos').val(telefonos);
+       $('#mision').val(mision);
+       $('#vision').val(vision);
+       $('#pagina_web').val(pagina_web);
+       $('#nombre_persona').val(nombre_persona);
+       $('#telefono_persona').val(telefono_persona);
+       $('#email_persona').val(email_persona);
+       $('#twitter').val(twitter);
+       $('#facebook').val(facebook);
+       $('#instagram').val(instagram);
+    }
+
+</script>
 </body>
 
 </html>
