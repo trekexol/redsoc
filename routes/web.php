@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::get('/', 'OrganizationController@index')->name('home');
+
+
+Route::patch('update', 'OrganizationController@update')->name('update');
 /*
 Route::group(["prefix"=>'users'],function(){
     Route::get('/','UserController@index')->name('users');
